@@ -41,9 +41,16 @@ window.addEventListener("load", function(){
   faultyItems = document.getElementById("faultyItems");
 
   form.addEventListener("submit", function(event) {
+    console.log(typeof pilotNameInput.value);
     if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === ""){
          alert("All fields are required.");  
          event.preventDefault();
+    };
+    if(!isNaN(Number(pilotNameInput.value))){
+      alert("Please enter a name for the Pilot, not a number.");
+    };
+    if(!isNaN(Number(copilotNameInput.value))){
+      alert("Please enter a name for the Copilot, not a number.");
     };
     if (isNaN(Number(fuelLevelInput.value))){
           alert("Fuel Level must be a number.");
